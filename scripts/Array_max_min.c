@@ -1,32 +1,18 @@
-#include <stdio.h>
-
-int maximum(int A[], int n){
-    int mx = A[0];
-    for (int i = 1; i < n; i++)
+JavaScript: Area and circumference of a circle
+function circle(radius)
+{
+    this.radius = radius;
+  // area method
+    this.area = function () 
     {
-        if(mx < A[i]){
-            mx = A[i];
-        }
-    }
-    return mx;
-    
-}
-int minimum(int A[], int n){
-    int mn = A[0];
-    for (int i = 1; i < n; i++)
+        return Math.PI * this.radius * this.radius;
+    };
+  // perimeter method
+    this.perimeter = function ()
     {
-        if(mn > A[i]){
-            mn = A[i];
-        }
-    }
-    return mn;
-    
+        return 2*Math.PI*this.radius;
+    };
 }
-
-int main(){
-    int A[] = {1, 3, 4, 1}; 
-    int size = (sizeof(A)/sizeof(int));
-    //printing the sum
-    printf("%d",minimum(A, size) + maximum(A, size) );
-    return 0;
-}
+var c = new circle(3);
+console.log('Area =', c.area().toFixed(2));
+console.log('perimeter =', c.perimeter().toFixed(2))
